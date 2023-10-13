@@ -9,7 +9,7 @@ const (
 	calldepth = 3
 )
 
-var l Logger = NewDefaultLogger(os.Stdout, "", log.LstdFlags|log.Lshortfile, LvError)
+var l Logger = NewDefaultLogger(os.Stdout, "", log.LstdFlags|log.Lshortfile, LvInfo)
 
 type Logger interface {
 	Debug(v ...interface{})

@@ -201,3 +201,11 @@ func Test_validIP6(t *testing.T) {
 		})
 	}
 }
+
+func TestWithPrintMethod(t *testing.T) {
+	s := NewServer(WithPrintRegisteredMethod())
+	err := s.RegisterName("Arith", new(Arith), "")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+}

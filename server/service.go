@@ -142,7 +142,6 @@ func (s *Server) register(rcvr interface{}, name string, useName bool) (string, 
 
 	// Install the methods
 	service.method = suitableMethods(service.typ, true)
-
 	if len(service.method) == 0 {
 		var errorStr string
 
@@ -155,6 +154,12 @@ func (s *Server) register(rcvr interface{}, name string, useName bool) (string, 
 		}
 		log.Error(errorStr)
 		return sname, errors.New(errorStr)
+	}
+	if s.printMethod {
+		for _, v := range service.method {
+			log.Info(fmt.Sprintf("registered [%s.%s]", service.name, v.method.Name))
+		}
+
 	}
 	s.serviceMap[service.name] = service
 	return sname, nil

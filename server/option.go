@@ -60,3 +60,9 @@ func WithAsyncWrite() OptionFn {
 		s.AsyncWrite = true
 	}
 }
+
+func WithPrintRegisteredMethod() OptionFn {
+	return func(s *Server) {
+		s.printMethod = true
+	}
+}

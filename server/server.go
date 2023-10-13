@@ -122,6 +122,7 @@ type Server struct {
 	// ServerErrorFunc is a customized error handlers and you can use it to return customized error strings to clients.
 	// If not set, it use err.Error()
 	ServerErrorFunc func(res *protocol.Message, err error) string
+	printMethod     bool
 }
 
 // NewServer returns a server.
