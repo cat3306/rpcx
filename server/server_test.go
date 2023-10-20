@@ -204,6 +204,7 @@ func Test_validIP6(t *testing.T) {
 
 func TestWithPrintMethod(t *testing.T) {
 	s := NewServer(WithPrintRegisteredMethod())
+	//log.SetLogger()
 	err := s.RegisterName("Arith", new(Arith), "")
 	if err != nil {
 		t.Fatalf(err.Error())
